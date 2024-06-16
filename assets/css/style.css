@@ -7,20 +7,90 @@ body {
 
   margin: 0;
   padding: 0;
-  background-color: #ADBC9F;
+  background-color: #adbc9f;
 }
 
 h2,
 h3,
 h4,
 strong {
-  color: #12372A;
+  color: #12372a;
+}
+
+header {
+  display: inline;
+}
+
+nav {
+  background-color: rgba(18, 55, 42, 0.9);
+  padding: 5px 4rem;
+
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav > a {
+  text-align: center;
+  font-family: "Satisfy", cursive;
+  display: block;
+  text-shadow: 4px 4px 0px rgba(18, 55, 42, 0.5);
+  font-size: 25px;
+  text-decoration: none;
+  color: #fbfada;
+}
+
+nav ul {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+nav ul.navigation a {
+  font-size: 18px;
+
+  font-weight: 400;
+  text-decoration: none;
+
+  color: #fbfada;
+  transition: 0.1s;
+}
+
+nav ul.navigation a:hover {
+  font-weight: bold;
+}
+
+nav li {
+  list-style-type: none;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+  display: flex;
+  gap: 1.5rem;
+}
+
+#content {
+  width: 65%;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem 2rem;
+}
+
+aside {
+  flex: 1;
 }
 
 footer {
   padding: 20px;
   color: white;
-  background-color: #12372A;
+  background-color: #12372a;
 
   text-align: center;
   font-weight: bold;
@@ -29,35 +99,6 @@ footer {
 table {
   width: 100%;
   text-align: left;
-}
-
-nav a {
-  font-size: 18px;
-
-  font-weight: 400;
-  text-decoration: none;
-
-  color: #FBFADA;
-  transition: 0.1s;
-}
-
-nav a:hover {
-  font-weight: bold;
-}
-
-.profile header {
-  text-align: center;
-}
-
-.jumbotron img {
-  user-select: none;
-  width: 100%;
-  max-height: 400px;
-  border-radius: 10px;
-  opacity: 0.5;
-
-  object-fit: cover;
-  object-position: center;
 }
 
 .featured-image {
@@ -69,15 +110,22 @@ nav a:hover {
   object-position: center;
 }
 
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .profile img {
-  max-width: 300px;
+  width: 100%;
   border-radius: 5px;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  background-color: #FBFADA;
+  background-color: #fbfada;
 
   padding: 20px;
 }
@@ -90,144 +138,77 @@ nav a:hover {
   text-align: justify;
 }
 
-.jumbotron h1 {
-  user-select: none;
-  font-size: 55px;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.jumbotron {
-  pointer-events: none;
-  font-family: "Satisfy", cursive;
-  text-align: center;
-  text-shadow: 4px 4px 0px rgba(18, 55, 42, 0.5);
-  position: relative;
-  padding: 15px;
-  background-color: #436850;
-  color: #FBFADA;
-}
-
-nav ul {
-  padding-inline: 4rem;
-  display: flex;
-  gap: 2rem;
-}
-
-nav li {
-  list-style-type: none;
-}
-
-nav {
-  background-color: #12372A;
-  padding: 5px;
-
-  position: sticky;
-  top: 0;
-}
-
-main {
-  padding: 20px;
-  display: flex;
-  gap: 1.5rem;
-}
-
-#content {
-  flex: 5;
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem 2rem
-}
-
-aside {
-  flex: 1;
-}
-
-header {
-  display: inline;
-}
-
 @media screen and (max-width: 1440px) {
-
-  .jumbotron img {
-    max-height: 350px;
-  }
-
   .featured-image {
     max-height: 200px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-
   .featured-image {
     max-height: 180px;
   }
 
-  .jumbotron img {
-    max-height: 300px;
+  #content {
+    width: 100%;
   }
-
-  .jumbotron h1 {
-    font-size: 40px;
+  .profile img {
+    width: 50%;
   }
-
   main {
     flex-flow: column nowrap;
   }
-
+  .profile img {
+    width: 75%;
+  }
   main aside {
     align-self: center;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
+  nav a.nav-title {
+    padding-top: 1rem;
+  }
+  nav {
+    padding: 5px 2rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 
+@media screen and (max-width: 768px) {
   .featured-image {
     max-height: 150px;
   }
 
-  .jumbotron img {
-    max-height: 280px;
+  nav {
+    justify-content: center;
   }
-
-  .jumbotron h1 {
-    font-size: 40px;
-  }
-
   nav ul {
     justify-content: center;
   }
-
+  .profile img {
+    width: 100%;
+  }
   main aside {
     align-self: stretch;
   }
 }
 
 @media screen and (max-width: 425px) {
-
   .featured-image {
-    max-height: 85px;
+    max-height: 300px;
   }
-
-  .jumbotron img {
-    max-height: 280px;
-  }
-
   .profile img {
     width: 100%;
   }
-
-  .jumbotron h1 {
-    font-size: 30px;
-  }
-
   nav ul {
     justify-content: center;
   }
-
+  figure {
+    margin: 0;
+  }
   main aside {
     align-self: stretch;
   }
